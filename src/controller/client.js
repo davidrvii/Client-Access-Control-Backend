@@ -39,7 +39,7 @@ const createNewClient = async (req, res) => {
     const {body} = req
 
     try {
-        await clientModel.createNewClient(body)
+        await clientModel.createNewClient(body, req.userData.id)
         response(201, body, 'CREATE Client Success', res)
     } catch (error) {
         response(500, error,'Server Error',res)
@@ -52,8 +52,8 @@ const updateClient = async (req, res) => {
     const { body } = req
 
     try {
-    await clientModel.updateClient(body, id)
-    response(200, body, 'UPDATE Client Success', res)    
+        await clientModel.updateClient(body, id)
+        response(200, body, 'UPDATE Client Success', res)    
     } catch (error) {
         response(500, error,'Server Error',res)
         throw error

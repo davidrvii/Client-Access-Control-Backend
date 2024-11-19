@@ -15,7 +15,7 @@ const authentication = async (req, res, next) => {
 
         const [userRows] = await userModel.authentication(decoded.username)
         if(userRows.length === 0 ) {
-            return response(401, userRows, 'User Not Found', res)
+            return response(401, userRows, 'Authentication : User Not Found', res)
         }
 
         const user = userRows[0]
@@ -35,9 +35,9 @@ const authentication = async (req, res, next) => {
 
 const authorization = async (req, res, next) => {
     try {
-        const [userRows] = await userModel.getUserDetail(req.userData.id)
+        const [userRows] = await userModel.getUserDetail(req.userData.ip_address)
         if(userRows.length === 0) {
-            response(403, userRows, 'Access Denied', res)
+            return response(403, userRows, 'Authorization : Access Denied', res)
         }
 
         next()
