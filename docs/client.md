@@ -6,7 +6,6 @@
 {
     "name": "David",
     "phone": "08171929",
-    "password": "hahahha",
     "address": "jakarta",
     "comment": "davvavav",
     "fk_user_id": 1
@@ -20,7 +19,6 @@
     "data": {
         "name": "David",
         "phone": "08171929",
-        "password": "hahahha",
         "address": "jakarta",
         "comment": "davvavav",
         "fk_user_id": 1
