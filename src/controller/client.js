@@ -1,6 +1,5 @@
 const clientModel = require('../models/client')
 const response = require('../../response')
-const { verifyToken } = require('../utils/jwt')
 
 const getAllClient = async (req, res) => {
     try {
