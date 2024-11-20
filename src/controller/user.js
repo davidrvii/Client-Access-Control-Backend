@@ -82,8 +82,7 @@ const loginUser = async (req, res) => {
 
         const user = userRows[0]
     
-        const isUsernameMatch = username === user.username
-        if (!isUsernameMatch) {
+        if (!username === user.username) {
             return response(401, null, 'Invalid Username', res)
         }
 
