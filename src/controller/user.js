@@ -72,7 +72,7 @@ const deleteUser = async (req, res) => {
 }
 
 const loginUser = async (req, res) => {
-    const { username, password, ip_address } = req.body
+    const { ip_address, username, password } = req.body
 
     try {
         const [userRows] = await userModel.getUserDetail(ip_address)
