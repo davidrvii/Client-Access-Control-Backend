@@ -4,9 +4,9 @@ const response = require('../../response')
 const getAllRadio = async (req, res) => {
     try {
         const [data] = await radioModel.getAllRadio()
-        response(200, data, 'GET All Radio Success', res)
+        response(200, {radios: data}, 'GET All Radio Success', res)
     } catch (error) {
-        response(500, error, 'Server Error', res)
+        response(500, {error: error}, 'Server Error', res)
         throw error
     }
 }
@@ -16,9 +16,9 @@ const getAllClientByRadio = async (req, res) => {
 
     try {
         const [data] = await radioModel.getAllClientByRadio(id)
-        response(200, data, 'GET All Client By Radio Success', res)
+        response(200, {clientsByRadio: data}, 'GET All Client By Radio Success', res)
     } catch (error) {
-        response(500, error, 'Server Error', res)
+        response(500, {error: error}, 'Server Error', res)
         throw error
     }
 }
@@ -28,9 +28,9 @@ const createNewRadio = async (req, res) => {
 
     try {
         await radioModel.createNewRadio(body)
-        response(201, body, 'CREATE Radio Success', res)
+        response(201, {newRadio: body}, 'CREATE Radio Success', res)
     } catch (error) {
-        response(500, error, 'Server Error', res)
+        response(500, {error: error}, 'Server Error', res)
         throw error
     }
 }
@@ -40,9 +40,9 @@ const deleteRadio = async (req, res) => {
 
     try {
         await radioModel.deleteRadio(id)
-        response(200, id, 'DELETE Radio Success', res)
+        response(200, {radioId: id}, 'DELETE Radio Success', res)
     } catch (error) {
-        response(500, error, 'Server Error', res)
+        response(500, {error: error}, 'Server Error', res)
         throw error
     }
 }

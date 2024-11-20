@@ -3,7 +3,7 @@ const response = (statusCode, data, message, res) =>{
         {
             statusCode: statusCode,
             message: message,
-            content:  data,
+            ...data,
         }
     )
 }

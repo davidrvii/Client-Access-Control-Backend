@@ -20,7 +20,7 @@
 {
     "statusCode": 201,
     "message": "CREATE Network Success",
-    "data": {
+    "newNetwork": {
         "radio_name": "dave",
         "frequency": "12 Hz",
         "ip_radio": "123.234.356.467",
@@ -38,7 +38,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "data": "error"
+    "error": "error"
 }
 ```
 ## Get All Network
@@ -49,7 +49,7 @@
 {
     "statusCode": 200,
     "message": "GET Network Success",
-    "data": [
+    "networks": [
         {
             "network_id": 1,
             "radio_name": "fufufafa",
@@ -77,7 +77,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "data": "error"
+    "error": "error"
 }
 ```
 ## Get Network By ID
@@ -88,7 +88,7 @@
 {
     "statusCode": 200,
     "message": "GET Network Detail Success",
-    "data": [
+    "networkDetail": [
         {
             "network_id": 1,
             "radio_name": "fufufafa",
@@ -116,7 +116,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "data": "error"
+    "error": "error"
 }
 ```
 ## Update Network By ID
@@ -140,7 +140,7 @@
 {
     "statusCode": 200,
     "message": "UPDATE Network Success",
-    "data": {
+    "updatedNetwork": {
         "radio_name": "dave",
         "frequency": "12 Hz",
         "ip_radio": "123.234.356.467",
@@ -158,7 +158,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "data": "error"
+    "error": "error"
 }
 ```
 ## Delete Network By ID
@@ -169,7 +169,7 @@
 {
     "statusCode": 200,
     "message": "DELETE Network Success",
-    "data": "5"
+    "networkId": "5"
 }
 ```
 - Response Error :
@@ -177,6 +177,6 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "data": "error"
+    "error": "error"
 }
 ```

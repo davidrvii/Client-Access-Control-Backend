@@ -7,7 +7,7 @@ const authentication = async (req, res, next) => {
         const authHeader = req.headers['Authorization'] || req.headers['authorization']
 
         if(!authHeader || !authHeader.startsWith('Bearer ')) {
-            return response(401, authHeader, 'Bearer Token Not Provided', res)
+            return response(401, {authenticationHeader: authHeader}, 'Bearer Token Not Provided', res)
         }
 
         const token = authHeader.split(' ')[1]
@@ -15,7 +15,7 @@ const authentication = async (req, res, next) => {
 
         const [userRows] = await userModel.authentication(decoded.username)
         if(userRows.length === 0 ) {
-            return response(401, userRows, 'Authentication : User Not Found', res)
+            return response(401, {authenticatedUser: userRows}, 'Authentication : User Not Found', res)
         }
 
         const user = userRows[0]
@@ -28,7 +28,7 @@ const authentication = async (req, res, next) => {
         next()
     
     } catch (error) {
-        response(error.code || 500, error, error.message || 'Interval Server Error', res)       
+        response(500, {error: error}, 'Interval Server Error', res)       
         throw error
     }
 }
@@ -37,13 +37,13 @@ const authorization = async (req, res, next) => {
     try {
         const [userRows] = await userModel.getUserDetail(req.userData.ip_address)
         if(userRows.length === 0) {
-            return response(403, userRows, 'Authorization : Access Denied', res)
+            return response(403, {authorizatedUser: userRows}, 'Authorization : Access Denied', res)
         }
 
         next()
 
     } catch (error) {
-        response(error.code || 500, error, error.message || 'Internal Server Error', res)
+        response(500, {error: error}, 'Internal Server Error', res)
         throw error
     }
 }

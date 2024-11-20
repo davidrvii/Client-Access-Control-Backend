@@ -4,9 +4,9 @@ const response = require('../../response')
 const getAllBTS = async (req, res) => {
     try {
         const [data] = await btsModel.getAllBTS()
-        response(200, data, 'GET All BTS Success', res)
+        response(200, {bts: data}, 'GET All BTS Success', res)
     } catch (error) {
-        response(500, error, 'Server Error', res)
+        response(500, {error: error}, 'Server Error', res)
         throw error
     }
 }
@@ -16,9 +16,9 @@ const getAllClientByBTS = async (req, res) => {
 
     try {
         const [data] = await btsModel.getAllClientByBTS(id)
-        response(200, data, 'GET All Client By BTS Success', res)
+        response(200, {clientsByBTS: data}, 'GET All Client By BTS Success', res)
     } catch (error) {
-        response(500, error, 'Server Error', res)
+        response(500, {error: error}, 'Server Error', res)
         throw error
     }
 }
@@ -28,9 +28,9 @@ const createNewBTS = async (req, res) => {
 
     try {
         await btsModel.createNewBTS(body)
-        response(201, body, 'CREATE BTS Success', res)
+        response(201, {newBTS: body}, 'CREATE BTS Success', res)
     } catch (error) {
-        response(500, error, 'Server Error', res)
+        response(500, {error: error}, 'Server Error', res)
         throw error
     }
 }
@@ -40,9 +40,9 @@ const deleteBTS = async (req, res) => {
 
     try {
         await btsModel.deleteBTS(id)
-        response(200, id, 'DELETE BTS Success', res)
+        response(200, {btsId: id}, 'DELETE BTS Success', res)
     } catch (error) {
-        response(500, error, 'Server Error', res)
+        response(500, {error: error}, 'Server Error', res)
         throw error
     }
 }

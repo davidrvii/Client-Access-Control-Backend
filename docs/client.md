@@ -7,8 +7,7 @@
     "name": "David",
     "phone": "08171929",
     "address": "jakarta",
-    "comment": "davvavav",
-    "fk_user_id": 1
+    "comment": "davvavav"
 }
 ```
 - Response Success :
@@ -16,12 +15,11 @@
 {
     "statusCode": 201,
     "message": "CREATE Client Success",
-    "data": {
+    "newClient": {
         "name": "David",
         "phone": "08171929",
         "address": "jakarta",
-        "comment": "davvavav",
-        "fk_user_id": 1
+        "comment": "davvavav"
     }
 }
 ```
@@ -30,7 +28,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "data": "error"
+    "error": "error"
 }
 ```
 ## Get All Client
@@ -41,7 +39,7 @@
 {
     "statusCode": 200,
     "message": "GET Client Success",
-    "data": [
+    "allClient": [
         {
             "name": "David",
             "ip_address": "123.345.564.533",
@@ -55,9 +53,35 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "data": "error"
+    "error": "error"
 }
 ```
+## Get All Client By User
+- Endpoint : /client/byUser
+- Request Body :
+- Response Success :
+```json
+{
+    "statusCode": 200,
+    "message": "GET Client",
+    "clients": [
+        {
+            "name": "David",
+            "ip_address": "123.345.564.533",
+            "internet_access": "Non-Actived"
+        }
+    ]
+}
+```
+- Response Error :
+```json
+{
+    "statusCode": 500,
+    "message": "Server Error",
+    "error": "error"
+}
+```
+
 ## Get Client By ID
 - Endpoint : /client/:id
 - Request Body :
@@ -66,7 +90,7 @@
 {
     "statusCode": 200,
     "message": "GET Client Detail Success",
-    "data": [
+    "clientDetail": [
         {
             "client_id": 1,
             "name": "David",
@@ -98,7 +122,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "data": "error"
+    "error": "error"
 }
 ```
 ## Update Client By ID
@@ -111,7 +135,6 @@
     "password": "hahahha",
     "address": "jakarta",
     "comment": "davvavav",
-    "fk_user_id": 1
 }
 ```
 - Response Success :
@@ -119,13 +142,12 @@
 {
     "statusCode": 200,
     "message": "UPDATE Client Success",
-    "data": {
+    "updatedClient": {
         "name": "David",
         "phone": "08171929",
         "password": "hahahha",
         "address": "jakarta",
         "comment": "davvavav",
-        "fk_user_id": 1
     }
 }
 ```
@@ -134,7 +156,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "data": "error"
+    "error": "error"
 }
 ```
 ## Delete Client By ID
@@ -145,7 +167,7 @@
 {
     "statusCode": 200,
     "message": "DELETE Client Success",
-    "data": "2"
+    "clientId": "2"
 }
 ```
 - Response Error :
@@ -153,6 +175,6 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "data": "error"
+    "error": "error"
 }
 ```

@@ -14,7 +14,7 @@
 {
     "statusCode": 201,
     "message": "CREATE User Success",
-    "content": {
+    "registerResult": {
         "username": "dave",
         "password": "dave1",
         "ip_address": "123.234.345.456"
@@ -26,7 +26,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "content": "error"
+    "error": "error"
 }
 ```
 ## Get All User
@@ -37,7 +37,7 @@
 {
     "statusCode": 200,
     "message": "GET User Success",
-    "content": [
+    "users": [
         {
             "user_id": 1,
             "username": "david",
@@ -54,7 +54,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "content": "error"
+    "error": "error"
 }
 ```
 ## Get User By ID
@@ -65,7 +65,7 @@
 {
     "statusCode": 200,
     "message": "GET User Detail Success",
-    "content": [
+    "userDetail": [
         {
             "user_id": 1,
             "username": "david",
@@ -82,7 +82,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "content": "error"
+    "error": "error"
 }
 ```
 ## Update User By ID
@@ -100,7 +100,7 @@
 {
     "statusCode": 200,
     "message": "UPDATE User Success",
-    "content": {
+    "updatedUser": {
         "username": "dave",
         "password": "dave1",
         "ip_address": "123.234.345.456"
@@ -112,7 +112,7 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "content": "error"
+    "error": "error"
 }
 ```
 ## Delete User By ID
@@ -123,7 +123,7 @@
 {
     "statusCode": 200,
     "message": "DELETE User Success",
-    "content": "2"
+    "userId": "2"
 }
 ```
 - Response Error :
@@ -131,6 +131,6 @@
 {
     "statusCode": 500,
     "message": "Server Error",
-    "content": "error"
+    "error": "error"
 }
 ```
