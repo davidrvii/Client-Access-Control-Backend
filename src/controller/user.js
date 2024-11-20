@@ -75,14 +75,14 @@ const loginUser = async (req, res) => {
     const { ip_address, username, password } = req.body
 
     try {
-        const [userRows] = await userModel.getUserDetail(ip_address)
-        if (userRows.length === 0) {
+        const [userLogin] = await userModel.getUserDetail(ip_address)
+        if (userLogin.length === 0) {
             return response(401, null, 'Invalid IP Address', res)
         }
 
-        const user = userRows[0]
+        const user = userLogin[0]
     
-        if (!username === user.username) {
+        if (username !== user.username) {
             return response(401, null, 'Invalid Username', res)
         }
 
