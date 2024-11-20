@@ -21,6 +21,28 @@
     }
 }
 ```
+## Login User
+- Endpoint : /user/login
+- Request Body :
+```json
+{
+    "username": "dave",
+    "password": "dave1",
+    "ip_address": "123.234.345.456"
+}
+``` 
+- Response Success :
+```json
+{
+    "statusCode": 201,
+    "message": "Login Success",
+    "LoginResult": {
+        "username": "dave",
+        "ip_address": "123.234.345.456",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLW1pNDVaOXZsem8xcjFqWHciLCJpYXQiOjE3MzIwOTE1NDJ9.G6qScOClhwnMQSXsv4a_nPe8gHoXDhoT7S3h93e1JpM"
+    }
+}
+```
 - Response Error :
 ```json
 {
