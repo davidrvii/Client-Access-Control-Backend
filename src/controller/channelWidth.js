@@ -3,7 +3,7 @@ const response = require('../../response')
 
 const getAllChannelWidth = async (req, res) => {
     try {
-        const [data] = await channelWidthModel.getAllChannelWidht()
+        const [data] = await channelWidthModel.getAllChannelWidth()
         response(200, {channelWidths: data}, 'GET All Channel Width Success', res)
     } catch (error) {
         response(500, {error: error}, 'Server Error', res)
@@ -15,7 +15,7 @@ const getAllClientByChannelWidth = async (req, res) => {
     const { id } = req.params
 
     try {
-        const [data] = await channelWidthModel.getAllCLientByChannelWidht(id)
+        const [data] = await channelWidthModel.getAllCLientByChannelWidth(id)
         response(200, {clientsByChannelWidth: data}, 'GET All Client By Channel Width Success', res)
     } catch (error) {
         response(500, {error: error}, 'Server Error', res)
@@ -27,7 +27,7 @@ const createNewChannelWidth = async (req, res) => {
     const { body } = req
 
     try {
-        await channelWidthModel.createNewChannelWidht(body)
+        await channelWidthModel.createNewChannelWidth(body)
         response(201, {newChannelWidth: body}, 'CREATE Channel Width Success', res)
     } catch (error) {
         response(500, {error: error}, 'Server Error', res)
@@ -39,7 +39,7 @@ const deleteChannelWidth = async (req, res) => {
     const { id } = req.params
 
     try {
-        await channelWidthModel.deleteChannelWidht(id)
+        await channelWidthModel.deleteChannelWidth(id)
         response(200, {channelWidthId: id}, 'DELETE Channel Width Success', res)
     } catch (error) {
         response(500, {error: error}, 'Server Error', res)

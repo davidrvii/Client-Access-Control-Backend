@@ -1,12 +1,12 @@
 const dbPool = require('../config/database')
 
-const getAllChannelWidht = () => {
-    const sqlQuery = 'SELECT * FROM channel_widht'
+const getAllChannelWidth = () => {
+    const sqlQuery = 'SELECT * FROM channel_width'
 
     return dbPool.execute(sqlQuery)
 }
 
-const getAllCLientByChannelWidht = (id) => {
+const getAllCLientByChannelWidth = (id) => {
     const sqlQuery = `  SELECT  client.name,
                                 network.ip_address,
                                 access.internet_access
@@ -18,22 +18,22 @@ const getAllCLientByChannelWidht = (id) => {
     return dbPool.execute(sqlQuery)
 }
 
-const createNewChannelWidht = (body) => {
-    const sqlQuery = `  INSERT INTO channel_widht (channel_widht)
-                        VALUES ('${body.channel_widht}')`
+const createNewChannelWidth = (body) => {
+    const sqlQuery = `  INSERT INTO channel_width (channel_width)
+                        VALUES ('${body.channel_width}')`
 
     return dbPool.execute(sqlQuery)
 }
 
-const deleteChannelWidht = (id) => {
-    const  sqlQuery = ` DELETE FROM channel_widht WHERE channel_widht_id='${id}'`
+const deleteChannelWidth = (id) => {
+    const  sqlQuery = ` DELETE FROM channel_width WHERE channel_width_id='${id}'`
 
     return dbPool.execute(sqlQuery)
 }
 
 module.exports = {
-    getAllChannelWidht,
-    getAllCLientByChannelWidht,
-    createNewChannelWidht,
-    deleteChannelWidht
+    getAllChannelWidth,
+    getAllCLientByChannelWidth,
+    createNewChannelWidth,
+    deleteChannelWidth
 }
