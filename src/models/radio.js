@@ -19,7 +19,7 @@ const getAllClientByRadio = (id) => {
 }
 
 const createNewRadio = (body) => {
-    const sqlQuery = `  INSERT INTO radio (radio)
+    const sqlQuery = `  INSERT INTO radio (type)
                         VALUES ('${body.radio}')`
 
     return dbPool.execute(sqlQuery)
