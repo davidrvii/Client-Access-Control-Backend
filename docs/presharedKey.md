@@ -4,7 +4,7 @@
 - Request Body :
 ```json
 {
-    
+    "preshared_key": "David"
 }
 ```
 - Response Success :
@@ -12,8 +12,8 @@
 {
     "statusCode": 201,
     "message": "CREATE Preshared Key Success",
-    " ": {
-        
+    "newPresharedKey": {
+        "preshared_key": "David"
     }
 }
 ```
@@ -26,16 +26,19 @@
 }
 ```
 ## Get All Preshared Key
-- Endpoint : /presharedKey
+- Endpoint : /presharedKey/
 - Request Body :
 - Response Success :
 ```json
 {
     "statusCode": 200,
-    "message": "GET Preshared Key Success",
-    " ": [
+    "message": "GET All Preshared Key Success",
+    "presharedKeys": [
         {
-            
+            "preshared_key_id": 1,
+            "preshared_key": "No Data",
+            "create_at": "2024-10-18T06:28:18.000Z",
+            "update_at": "2024-10-18T06:28:18.000Z"
         }
     ]
 }
@@ -50,17 +53,19 @@
 }
 ```
 
-## Get Preshared Key By ID
+## Get All CLient By Preshared Key
 - Endpoint : /presharedKey/:id
 - Request Body :
 - Response Success :
 ```json
 {
     "statusCode": 200,
-    "message": "GET Preshared Key Detail Success",
-    " ": [
+    "message": "GET All Client By Preshared Key Success",
+    "ClientsByPresharedKey": [
         {
-            
+            "name": "David",
+            "ip_address": "123.345.564.533",
+            "internet_access": "Non-Actived"
         }
     ]
 }
@@ -73,32 +78,7 @@
     "error": "error"
 }
 ```
-## Update Preshared Key By ID
-- Endpoint : /presharedKey/:id
-- Request Body :
-```json
-{
-    
-}
-```
-- Response Success :
-```json
-{
-    "statusCode": 200,
-    "message": "UPDATE Preshared Key Success",
-    " ": {
-        
-    }
-}
-```
-- Response Error :
-```json
-{
-    "statusCode": 500,
-    "message": "Server Error",
-    "error": "error"
-}
-```
+
 ## Delete Preshared Key By ID
 - Endpoint : /presharedKey/:id
 - Request Body :
@@ -107,7 +87,7 @@
 {
     "statusCode": 200,
     "message": "DELETE Preshared Key Success",
-    " ": "2"
+    "presharedKeyId": "5"
 }
 ```
 - Response Error :

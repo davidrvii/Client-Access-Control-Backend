@@ -4,7 +4,7 @@
 - Request Body :
 ```json
 {
-    
+    "radio": "David"
 }
 ```
 - Response Success :
@@ -12,8 +12,8 @@
 {
     "statusCode": 201,
     "message": "CREATE Radio Success",
-    " ": {
-        
+    "newRadio": {
+        "radio": "David"
     }
 }
 ```
@@ -26,16 +26,19 @@
 }
 ```
 ## Get All Radio
-- Endpoint : /radio
+- Endpoint : /radio/
 - Request Body :
 - Response Success :
 ```json
 {
     "statusCode": 200,
-    "message": "GET Radio Success",
-    " ": [
+    "message": "GET All Radio Success",
+    "radios": [
         {
-            
+            "radio_id": 1,
+            "type": "No Data",
+            "create_at": "2024-10-18T06:29:57.000Z",
+            "update_at": "2024-10-18T06:29:57.000Z"
         }
     ]
 }
@@ -50,17 +53,19 @@
 }
 ```
 
-## Get Radio By ID
+## Get All Client By Radio
 - Endpoint : /radio/:id
 - Request Body :
 - Response Success :
 ```json
 {
     "statusCode": 200,
-    "message": "GET Radio Detail Success",
-    " ": [
+    "message": "GET All Client By Radio Success",
+    "clientsByRadio": [
         {
-            
+            "name": "David",
+            "ip_address": "123.345.564.533",
+            "internet_access": "Non-Actived"
         }
     ]
 }
@@ -73,32 +78,7 @@
     "error": "error"
 }
 ```
-## Update Radio By ID
-- Endpoint : /radio/:id
-- Request Body :
-```json
-{
-    
-}
-```
-- Response Success :
-```json
-{
-    "statusCode": 200,
-    "message": "UPDATE Radio Success",
-    " ": {
-        
-    }
-}
-```
-- Response Error :
-```json
-{
-    "statusCode": 500,
-    "message": "Server Error",
-    "error": "error"
-}
-```
+
 ## Delete Radio By ID
 - Endpoint : /radio/:id
 - Request Body :
@@ -107,7 +87,7 @@
 {
     "statusCode": 200,
     "message": "DELETE Radio Success",
-    " ": "2"
+    "radioId": "15"
 }
 ```
 - Response Error :

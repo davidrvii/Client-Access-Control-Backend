@@ -4,7 +4,7 @@
 - Request Body :
 ```json
 {
-    
+    "channel_width": "Channel Width"
 }
 ```
 - Response Success :
@@ -12,8 +12,8 @@
 {
     "statusCode": 201,
     "message": "CREATE Channel Width Success",
-    " ": {
-        
+    "newChannelWidth": {
+        "channel_width": "David"
     }
 }
 ```
@@ -26,42 +26,20 @@
 }
 ```
 ## Get All Channel Width
-- Endpoint : /channelWidth
+- Endpoint : /channelWidth/
 - Request Body :
 - Response Success :
 ```json
 {
     "statusCode": 200,
-    "message": "GET Channel Width Success",
-    " ": [
+    "message": "GET All Channel Width Success",
+    "channelWidths": [
         {
-            
-        }
-    ]
-}
-```
-
-- Response Error :
-```json
-{
-    "statusCode": 500,
-    "message": "Server Error",
-    "error": "error"
-}
-```
-
-## Get Channel Width By ID
-- Endpoint : /channelWidth/:id
-- Request Body :
-- Response Success :
-```json
-{
-    "statusCode": 200,
-    "message": "GET Channel Width Detail Success",
-    " ": [
-        {
-            
-        }
+            "channel_width_id": 1,
+            "channel_width": "No Data",
+            "create_at": "2024-10-18T06:26:44.000Z",
+            "update_at": "2024-10-18T06:26:44.000Z"
+        },
     ]
 }
 ```
@@ -73,22 +51,22 @@
     "error": "error"
 }
 ```
-## Update Channel Width By ID
+
+## Get All Client By Channel Width
 - Endpoint : /channelWidth/:id
 - Request Body :
-```json
-{
-    
-}
-```
 - Response Success :
 ```json
 {
     "statusCode": 200,
-    "message": "UPDATE Channel Width Success",
-    " ": {
-        
-    }
+    "message": "GET All Client By Channel Width Success",
+    "clientsByChannelWidth": [
+        {
+            "name": "David",
+            "ip_address": "123.345.564.533",
+            "internet_access": "Non-Actived"
+        }
+    ]
 }
 ```
 - Response Error :
@@ -99,6 +77,7 @@
     "error": "error"
 }
 ```
+
 ## Delete Channel Width By ID
 - Endpoint : /channelWidth/:id
 - Request Body :
@@ -107,7 +86,7 @@
 {
     "statusCode": 200,
     "message": "DELETE Channel Width Success",
-    " ": "2"
+    "channelWidthId": "2"
 }
 ```
 - Response Error :

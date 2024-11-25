@@ -4,7 +4,7 @@
 - Request Body :
 ```json
 {
-    
+    "bts": "bts"
 }
 ```
 - Response Success :
@@ -12,8 +12,8 @@
 {
     "statusCode": 201,
     "message": "CREATE BTS Success",
-    " ": {
-        
+    "newBTS": {
+        "bts": "bts"
     }
 }
 ```
@@ -33,9 +33,12 @@
 {
     "statusCode": 200,
     "message": "GET BTS Success",
-    " ": [
+    "bts": [
         {
-            
+            "bts_id": 1,
+            "bts": "No Data",
+            "create_at": "2024-10-18T06:25:51.000Z",
+            "update_at": "2024-10-18T06:25:51.000Z"
         }
     ]
 }
@@ -48,46 +51,21 @@
     "error": "error"
 }
 ```
-
-## Get BTS By ID
+## Get All Client By BTS
 - Endpoint : /bts/:id
 - Request Body :
 - Response Success :
 ```json
 {
     "statusCode": 200,
-    "message": "GET BTS Detail Success",
-    " ": [
+    "message": "GET All Client By BTS Success",
+    "clientsByBTS": [
         {
-            
+            "name": "David",
+            "ip_address": "123.345.564.533",
+            "internet_access": "Non-Actived"
         }
     ]
-}
-```
-- Response Error :
-```json
-{
-    "statusCode": 500,
-    "message": "Server Error",
-    "error": "error"
-}
-```
-## Update BTS By ID
-- Endpoint : /bts/:id
-- Request Body :
-```json
-{
-    
-}
-```
-- Response Success :
-```json
-{
-    "statusCode": 200,
-    "message": "UPDATE BTS Success",
-    " ": {
-        
-    }
 }
 ```
 - Response Error :
@@ -106,7 +84,7 @@
 {
     "statusCode": 200,
     "message": "DELETE BTS Success",
-    " ": "2"
+    "btsId": "2"
 }
 ```
 - Response Error :
