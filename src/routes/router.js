@@ -8,6 +8,8 @@ const modeRoutes = require('./mode')
 const channelWidthRoutes = require('./channelWidth')
 const presharedKeyRoutes = require('./presharedKey')
 const btsRoutes = require('./bts')
+const accessRoutes = require('./access')
+const speedRoutes = require('./speed')
 
 router.get('/', (req, res) => {
     res.send("Welocome to Client Access Control <br><br> -Rajawali Sinergi Group-")
@@ -21,5 +23,7 @@ router.use('/mode', modeRoutes)
 router.use('/channelWidth', channelWidthRoutes)
 router.use('/presharedKey', presharedKeyRoutes)
 router.use('/bts', btsRoutes)
+router.use('/access', accessRoutes)
+router.use('/speed', speedRoutes)
 
 module.exports = router
