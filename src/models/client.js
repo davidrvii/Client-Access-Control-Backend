@@ -2,6 +2,7 @@ const dbPool = require('../config/database')
 
 const getAllClient = () => {
     const sqlQuery = `  SELECT  client.name,
+                                client.client_id,
                                 network.ip_address,
                                 access.internet_access
                         FROM client

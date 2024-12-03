@@ -41,6 +41,7 @@
     "message": "GET Client Success",
     "allClient": [
         {
+            "client_id" : "1",
             "name": "David",
             "ip_address": "123.345.564.533",
             "internet_access": "Non-Actived"
