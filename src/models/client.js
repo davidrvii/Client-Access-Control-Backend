@@ -13,7 +13,8 @@ const getAllClient = () => {
 }
 
 const getAllClientByUser = (id) => {
-    const sqlQuery = `  SELECT  client.name,
+    const sqlQuery = `  SELECT  client.client_id,
+                                client.name,
                                 network.ip_address,
                                 access.internet_access
                         FROM client
