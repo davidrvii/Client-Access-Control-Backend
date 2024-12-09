@@ -29,7 +29,7 @@ const getNetworkDetail = (id) => {
                                 INNER JOIN channel_width ON network.fk_channel_width_id=channel_width.channel_width_id
                                 INNER JOIN preshared_key ON network.fk_preshared_key_id=preshared_key.preshared_key_id
                                 INNER JOIN bts ON network.fk_bts_id=bts.bts_id
-                            WHERE fk_client_id='${id}'`
+                            WHERE network_id='${id}'`
     
     return dbPool.execute(sqlQuery)
 }

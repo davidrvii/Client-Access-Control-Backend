@@ -32,6 +32,7 @@ const getClientDetail = (id) => {
                                 client.address,
                                 access.internet_access,
                                 speed.internet_speed,
+                                network.network_id,
                                 network.radio_name,
                                 network.frequency,
                                 network.ip_radio,
