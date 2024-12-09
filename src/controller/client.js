@@ -50,9 +50,21 @@ const updateClient = async (req, res) => {
     const { id } = req.params
     const { body } = req
 
+    const filteredBody = Object.entries(body).reduce((acc, [key, value]) => {
+        if (value !== '') {
+            acc[key] = value;
+        }
+        return acc;
+    }, {});
+
     try {
-        await clientModel.updateClient(body, id)
-        response(200, {updatedClient: body}, 'UPDATE Client Success', res)    
+        const [clientData] = await clientModel.getClientDetail(id)
+
+        const client = {...clientData[0], ...body}
+
+        await clientModel.updateClient(filteredBody, id)
+
+        response(200, {updatedClient: client}, 'UPDATE Client Success', res)    
     } catch (error) {
         response(500, {error: error},'Server Error',res)
         throw error
