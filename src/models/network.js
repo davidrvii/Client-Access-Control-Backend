@@ -7,7 +7,8 @@ const getAllNetwork = () => {
 }
 
 const getNetworkDetail = (id) => {
-    const sqlQuery = ` SELECT   network.radio_name,
+    const sqlQuery = ` SELECT   network.network_id
+                                network.radio_name,
                                 network.frequency,
                                 network.ip_radio,
                                 network.ip_address,
@@ -15,6 +16,8 @@ const getNetworkDetail = (id) => {
                                 network.ssid,
                                 network.radio_signal,
                                 network.ap_location,
+                                network.password,
+                                network.comment,
                                 radio.type,
                                 mode.mode,
                                 channel_width.channel_width,
