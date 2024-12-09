@@ -7,7 +7,7 @@ const getAllNetwork = () => {
 }
 
 const getNetworkDetail = (id) => {
-    const sqlQuery = ` SELECT   network.network_id
+    const sqlQuery = ` SELECT   network.network_id,
                                 network.radio_name,
                                 network.frequency,
                                 network.ip_radio,
