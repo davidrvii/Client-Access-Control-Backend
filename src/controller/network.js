@@ -39,9 +39,21 @@ const updateNetwork = async (req, res) => {
     const { id } = req.params
     const { body } = req
 
+    const filteredBody = Object.entries(body).reduce((acc, [key, value]) => {
+        if (value !== '') {
+            acc[key] = value;
+        }
+        return acc;
+    }, {});
+
     try {
-        await networkModel.updateNetwork(body, id)
-        response(200, {updatedNetwork: body}, 'UPDATE Network Success', res)
+        const [networkData] = await networkModel.getNetworkDetail(id)
+        
+        const newNetwork = { ...networkData[0], ...body}
+        
+        await networkModel.updateNetwork(filteredBody, id)
+
+        response(200, {updatedNetwork: newNetwork}, 'UPDATE Network Success', res)
     } catch (error) {
         response(500, {error: error}, 'Server Error', res)
         throw error

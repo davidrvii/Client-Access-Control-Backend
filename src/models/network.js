@@ -7,7 +7,26 @@ const getAllNetwork = () => {
 }
 
 const getNetworkDetail = (id) => {
-    const sqlQuery = ` SELECT * FROM network WHERE network_id='${id}'`
+    const sqlQuery = ` SELECT   network.radio_name,
+                                network.frequency,
+                                network.ip_radio,
+                                network.ip_address,
+                                network.wlan_mac_address,
+                                network.ssid,
+                                network.radio_signal,
+                                network.ap_location,
+                                radio.type,
+                                mode.mode,
+                                channel_width.channel_width,
+                                preshared_key.preshared_key,
+                                bts.bts 
+                            FROM network 
+                                INNER JOIN radio ON network.fk_radio_id=radio.radio_id
+                                INNER JOIN mode ON network.fk_mode_id=mode.mode_id
+                                INNER JOIN channel_width ON network.fk_channel_width_id=channel_width.channel_width_id
+                                INNER JOIN preshared_key ON network.fk_preshared_key_id=preshared_key.preshared_key_id
+                                INNER JOIN bts ON network.fk_bts_id=bts.bts_id
+                            WHERE fk_client_id='${id}'`
     
     return dbPool.execute(sqlQuery)
 }
