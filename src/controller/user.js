@@ -93,7 +93,7 @@ const loginUser = async (req, res) => {
 
         const token = generateToken({id: user.user_id, username: user.username})
 
-        response(200, {loginResult: { username, ip_address, token }}, 'Login Success', res)
+        response(200, {loginResult: { username, password, ip_address, token }}, 'Login Success', res)
     } catch (error) {
         response(500, {error: error}, 'Internal Server Error', res)
         throw error
