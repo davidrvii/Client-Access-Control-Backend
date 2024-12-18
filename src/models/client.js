@@ -5,7 +5,7 @@ const getAllClient = () => {
                                 client.client_id,
                                 network.ip_address,
                                 network.comment,
-                                access.internet_access
+                                access.internet_access,
                                 access.internet_speed
                         FROM client
                             INNER JOIN network ON network.fk_client_id=client.client_id
