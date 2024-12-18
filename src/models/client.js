@@ -4,6 +4,7 @@ const getAllClient = () => {
     const sqlQuery = `  SELECT  client.name,
                                 client.client_id,
                                 network.ip_address,
+                                network.comment,
                                 access.internet_access
                         FROM client
                             INNER JOIN network ON network.fk_client_id=client.client_id
@@ -16,6 +17,7 @@ const getAllClientByUser = (id) => {
     const sqlQuery = `  SELECT  client.client_id,
                                 client.name,
                                 network.ip_address,
+                                network.comment,
                                 access.internet_access
                         FROM client
                             INNER JOIN network ON network.fk_client_id=client.client_id
