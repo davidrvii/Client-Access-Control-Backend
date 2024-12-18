@@ -6,7 +6,7 @@ const getAllClient = () => {
                                 network.ip_address,
                                 network.comment,
                                 access.internet_access,
-                                speed.internet_speed
+                                speed.speed_id
                         FROM client
                             INNER JOIN network ON network.fk_client_id=client.client_id
                             INNER JOIN access ON client.fk_access_id=access.access_id
@@ -21,7 +21,7 @@ const getAllClientByUser = (id) => {
                                 network.ip_address,
                                 network.comment,
                                 access.internet_access,
-                                speed.internet_speed
+                                speed.speed_id
                         FROM client
                             INNER JOIN network ON network.fk_client_id=client.client_id
                             INNER JOIN access ON client.fk_access_id=access.access_id
