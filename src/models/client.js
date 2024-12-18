@@ -6,10 +6,11 @@ const getAllClient = () => {
                                 network.ip_address,
                                 network.comment,
                                 access.internet_access,
-                                access.internet_speed
+                                speed.internet_speed
                         FROM client
                             INNER JOIN network ON network.fk_client_id=client.client_id
-                            INNER JOIN access ON client.fk_access_id=access.access_id`
+                            INNER JOIN access ON client.fk_access_id=access.access_id
+                            INNER JOIN speed ON client.fk_speed_id=speed.speed_id`
 
     return dbPool.execute(sqlQuery)
 }
@@ -20,10 +21,11 @@ const getAllClientByUser = (id) => {
                                 network.ip_address,
                                 network.comment,
                                 access.internet_access,
-                                access.internet_speed
+                                speed.internet_speed
                         FROM client
                             INNER JOIN network ON network.fk_client_id=client.client_id
                             INNER JOIN access ON client.fk_access_id=access.access_id
+                            INNER JOIN speed ON client.fk_speed_id=speed.speed_id
                         WHERE client.fk_user_id='${id}'`
     
     return dbPool.execute(sqlQuery)
