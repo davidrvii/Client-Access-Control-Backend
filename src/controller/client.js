@@ -36,10 +36,18 @@ const getClientDetail = async (req, res) => {
 
 const getNewClient = async (req, res) => {
     const { name, phone, address } = req.body;
+
+    if (!name || !phone || !address) {
+        return response(400, {}, 'Name, Phone, and Address are required', res);
+    }
     
     try {
         const [data] = await clientModel.getNewClient(name, phone, address)
-        response(200, {newClient: data}, 'Get New Client Success', res)
+        if (data.length > 0) {
+            response(200, { newClient: data[0] }, 'Get New Client Success', res);
+        } else {
+            response(404, {}, 'Client Not Found', res);
+        }
     } catch (error) {
         response(500, {error: error}, 'Server Error', res)
         throw error
