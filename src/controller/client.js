@@ -34,6 +34,18 @@ const getClientDetail = async (req, res) => {
     }
 }
 
+const getNewClient = async (req, res) => {
+    const { name, phone, address } = req.params
+    
+    try {
+        const [data] = await clientModel.getNewClient(name, phone, address)
+        response(200, {newClient: data}, 'Get New Client Success', res)
+    } catch (error) {
+        response(500, {error: error}, 'Server Error', res)
+        throw error
+    }
+}
+
 const createNewClient = async (req, res) => {
     const {body} = req
 
@@ -86,6 +98,7 @@ module.exports = {
     getAllClient,
     getAllClientByUser,
     getClientDetail,
+    getNewClient,
     createNewClient,
     updateClient,
     deleteClient

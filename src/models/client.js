@@ -68,6 +68,17 @@ const getClientDetail = (id) => {
     return dbPool.execute(sqlQuery)
 }
 
+const getNewClient = (name, phone, address) => {
+    const sqlQuery = `  SELECT  client_id, 
+                                name, 
+		                        phone,
+                                address
+                        FROM client
+                        WHERE name ='${name}' AND phone ='${phone}', '${address}'`
+
+    return dbPool.execute(sqlQuery)
+}
+
 const createNewClient = (body, userId) => {
     const sqlQuery = `  INSERT INTO client (name, phone, address, comment, fk_access_id, fk_speed_id, fk_user_id)
                         VALUES ('${body.name}', '${body.phone}', '${body.address}', '${body.comment}', '${body.access_id}', '${body.speed_id}' '${userId}')`
@@ -92,6 +103,7 @@ module.exports = {
     getAllClient,
     getAllClientByUser,
     getClientDetail,
+    getNewClient,
     createNewClient,
     updateClient,
     deleteClient
