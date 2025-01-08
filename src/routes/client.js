@@ -10,6 +10,8 @@ router.post('/add', authentication, authorization, clientController.createNewCli
 
 router.get('/:id', authentication, clientController.getClientDetail)
 
+router.get('/newClient', authentication, clientController.getNewClient)
+
 router.patch('/:id', authentication, authorization, clientController.updateClient)
 
 router.delete('/:id', authentication, authorization, clientController.deleteClient)
