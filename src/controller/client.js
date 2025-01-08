@@ -35,14 +35,14 @@ const getClientDetail = async (req, res) => {
 }
 
 const getNewClient = async (req, res) => {
-    const { name, phone, address } = req.body;
+    const { name, phone } = req.body;
 
     if (!name || !phone || !address) {
         return response(400, {}, 'Name, Phone, and Address are required', res);
     }
     
     try {
-        const [data] = await clientModel.getNewClient(name, phone, address)
+        const [data] = await clientModel.getNewClient(name, phone)
         if (data.length > 0) {
             response(200, { newClient: data[0] }, 'Get New Client Success', res);
         } else {

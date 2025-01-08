@@ -68,10 +68,10 @@ const getClientDetail = (id) => {
     return dbPool.execute(sqlQuery)
 }
 
-const getNewClient = (name, phone, address) => {
+const getNewClient = (name, phone) => {
     const sqlQuery = `  SELECT client_id, name, phone,address
                         FROM client
-                        WHERE name ='${name}' AND phone ='${phone}' AND address ='${address}'`
+                        WHERE name ='${name}' AND phone ='${phone}'`
 
     return dbPool.execute(sqlQuery)
 }
