@@ -8,9 +8,9 @@ router.get('/byUser', authentication, clientController.getAllClientByUser)
 
 router.post('/add', authentication, authorization, clientController.createNewClient)
 
-router.get('/:id', authentication, clientController.getClientDetail)
-
 router.get('/newClient', authentication, clientController.getNewClient)
+
+router.get('/:id', authentication, clientController.getClientDetail)
 
 router.patch('/:id', authentication, authorization, clientController.updateClient)
 
