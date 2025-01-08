@@ -77,8 +77,8 @@ const getNewClient = (name, phone) => {
 }
 
 const createNewClient = (body, userId) => {
-    const sqlQuery = `  INSERT INTO client (name, phone, address, comment, fk_access_id, fk_speed_id, fk_user_id)
-                        VALUES ('${body.name}', '${body.phone}', '${body.address}', '${body.comment}', '${body.access_id}', '${body.speed_id}' '${userId}')`
+    const sqlQuery = `  INSERT INTO client (name, phone, address, fk_access_id, fk_speed_id, fk_user_id)
+                        VALUES ('${body.name}', '${body.phone}', '${body.address}', '${body.access_id}', '${body.speed_id}' '${userId}')`
 
     return dbPool.execute(sqlQuery)
 }
