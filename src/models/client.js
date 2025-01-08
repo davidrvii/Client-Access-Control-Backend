@@ -74,7 +74,7 @@ const getNewClient = (name, phone, address) => {
 		                        phone,
                                 address
                         FROM client
-                        WHERE name ='${name}' AND phone ='${phone}' AND '${address}'`
+                        WHERE name ='${name}' AND phone ='${phone}' AND address = '${address}'`
 
     return dbPool.execute(sqlQuery)
 }
