@@ -39,7 +39,7 @@ const getNewClient = async (req, res) => {
     
     try {
         const [data] = await clientModel.getNewClient(name, phone)
-        response(200, { newClient: data[0] }, 'Get New Client Success', res)
+        response(200, { newClient: data }, 'Get New Client Success', res)
     } catch (error) {
         response(500, {error: error}, 'Server Error', res)
         throw error
