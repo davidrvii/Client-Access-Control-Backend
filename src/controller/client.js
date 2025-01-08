@@ -37,7 +37,7 @@ const getClientDetail = async (req, res) => {
 const getNewClient = async (req, res) => {
     const { name, phone } = req.body;
 
-    if (!name || !phone || !address) {
+    if (!name || !phone) {
         return response(400, {}, 'Name, Phone, and Address are required', res);
     }
     
