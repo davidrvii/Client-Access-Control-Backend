@@ -50,8 +50,16 @@ const createNewClient = async (req, res) => {
     const {body} = req
 
     try {
-        await clientModel.createNewClient(body, req.userData.id)
-        response(201, {newClient: body}, 'CREATE Client Success', res)
+        const [result] = await clientModel.createNewClient(body, req.userData.id)
+
+        const newClientId = result.insertId
+
+        const responseBody = {
+            ...body,
+            clientId : newClientId
+        }
+
+        response(201, {newClient: responseBody}, 'CREATE Client Success', res)
     } catch (error) {
         response(500, {error: error},'Server Error',res)
         throw error
