@@ -94,7 +94,6 @@ module.exports = {
     getAllClient,
     getAllClientByUser,
     getClientDetail,
-    getNewClient,
     createNewClient,
     updateClient,
     deleteClient
