@@ -68,14 +68,6 @@ const getClientDetail = (id) => {
     return dbPool.execute(sqlQuery)
 }
 
-const getNewClient = (name, phone) => {
-    const sqlQuery = `  SELECT client_id, name, phone,address
-                        FROM client
-                        WHERE name ='${name}' AND phone ='${phone}'`
-
-    return dbPool.execute(sqlQuery)
-}
-
 const createNewClient = (body, userId) => {
     const sqlQuery = `  INSERT INTO client (name, phone, address, fk_access_id, fk_speed_id, fk_user_id)
                         VALUES ('${body.name}', '${body.phone}', '${body.address}', '${body.access_id}', '${body.speed_id}', '${userId}')`
