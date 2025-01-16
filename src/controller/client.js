@@ -22,8 +22,9 @@ const getAllClientByUser = async (req, res) => {
     }
 }
 
-const getAllClientFilter = async(req, res) => {
+const getAllClientFilter = async (req, res) => {
     const {body} = req
+    console.log('Raw Body:', req.body)
     console.log('Body received:', body);
     try {
         const userId = req.userData.id
