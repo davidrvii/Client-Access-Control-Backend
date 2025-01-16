@@ -37,8 +37,6 @@ const getAllClientFilter = (userId, body) => {
     .map(([key, value]) => `${key}='${value}'`)
     .join(' AND ');
 
-    console.log(fields)
-
     const sqlQuery = `  SELECT  client.client_id,
                                 client.name,
                                 network.ip_address,

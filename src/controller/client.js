@@ -24,6 +24,7 @@ const getAllClientByUser = async (req, res) => {
 
 const getAllClientFilter = async(req, res) => {
     const {body} = req
+    console.log('Body received:', body);
     try {
         const userId = req.userData.id
         const [data] = await clientModel.getAllClientFilter(userId, body)
