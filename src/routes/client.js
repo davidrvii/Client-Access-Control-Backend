@@ -8,6 +8,8 @@ router.get('/byUser', authentication, clientController.getAllClientByUser)
 
 router.get('/filter', authentication, authorization, clientController.getAllClientFilter)
 
+router.get('/search', authentication, clientController.getSearchedClient)
+
 router.post('/add', authentication, authorization, clientController.createNewClient)
 
 router.get('/:id', authentication, clientController.getClientDetail)

@@ -42,6 +42,19 @@ const getAllClientFilter = async (req, res) => {
     }
 }
 
+const getSearchedClient = async (req, res) => {
+    const { query } = req.query
+
+    try {
+        const userId = req.userData.id
+        const [data] = await clientModel.getSearchedClient(userId, query)
+        response(200, {searchedClient: data}, 'Get Searched Client Success', res)   
+    } catch (error) {
+        response(500, {error: error}, 'Server Error', res)
+        throw error
+    }
+}
+
 const getClientDetail = async (req, res) => {
     const { id } = req.params
     
@@ -115,6 +128,7 @@ module.exports = {
     getAllClient,
     getAllClientByUser,
     getAllClientFilter,
+    getSearchedClient,
     getClientDetail,
     createNewClient,
     updateClient,
