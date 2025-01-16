@@ -31,11 +31,11 @@ const getAllClientFilter = async (req, res) => {
         }
         return acc;
     }, {});
-    
+
     try {
         const userId = req.userData.id
         const [data] = await clientModel.getAllClientFilter(userId, filteredQuery)
-        response(200, {filteredClients: data})
+        response(200, {filteredClients: data}, 'Get Filtered Client Success', res)
     } catch (error) {
         response(500, {error: error}, 'Server Error', res)
         throw error
