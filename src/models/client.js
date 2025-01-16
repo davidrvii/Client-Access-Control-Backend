@@ -32,7 +32,7 @@ const getAllClientByUser = (id) => {
 }
 
 const getAllClientFilter = (userId, body) => {
-    const fields = Object.keys(body).map(key => `${key}='${body[key]}'`).join(', ')
+    const fields = Object.keys(body).map(key => `${key}='${body[key]}'`).join(' AND ')
     const sqlQuery = `  SELECT  client.client_id,
                                 client.name,
                                 network.ip_address,
