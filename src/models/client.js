@@ -31,6 +31,23 @@ const getAllClientByUser = (id) => {
     return dbPool.execute(sqlQuery)
 }
 
+const getAllClientFilter = (userId, body) => {
+    const fields = Object.keys(body).map(key => `${key}='${body[key]}'`).join(', ')
+    const sqlQuery = `  SELECT  client.client_id,
+                                client.name,
+                                network.ip_address,
+                                network.comment,
+                                access.internet_access,
+                                speed.speed_id
+                        FROM client
+                            INNER JOIN network ON network.fk_client_id=client.client_id
+                            INNER JOIN access ON client.fk_access_id=access.access_id
+                            INNER JOIN speed ON client.fk_speed_id=speed.speed_id
+                        WHERE client.fk_user_id='${userId}' AND ${fields}`
+    
+    return dbPool.execute(sqlQuery)
+}
+
 const getClientDetail = (id) => {
     const sqlQuery = `  SELECT  client.client_id, 
                                 client.name, 
@@ -91,6 +108,7 @@ const deleteClient = (id) => {
 module.exports = {
     getAllClient,
     getAllClientByUser,
+    getAllClientFilter,
     getClientDetail,
     createNewClient,
     updateClient,

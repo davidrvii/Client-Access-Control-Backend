@@ -22,6 +22,18 @@ const getAllClientByUser = async (req, res) => {
     }
 }
 
+const getAllClientFilter = async(req, res) => {
+    const {body} = req
+    try {
+        const userId = req.userData.id
+        const [data] = await clientModel.getAllClientFilter(userId, body)
+        response(200, {filteredClients: data})
+    } catch (error) {
+        response(500, {error: error}, 'Server Error', res)
+        throw error
+    }
+}
+
 const getClientDetail = async (req, res) => {
     const { id } = req.params
     
@@ -58,6 +70,7 @@ const updateClient = async (req, res) => {
     const { id } = req.params
     const { body } = req
 
+    //remove blank value of key
     const filteredBody = Object.entries(body).reduce((acc, [key, value]) => {
         if (value !== '') {
             acc[key] = value;
@@ -93,6 +106,7 @@ const deleteClient = async (req, res) => {
 module.exports = {
     getAllClient,
     getAllClientByUser,
+    getAllClientFilter,
     getClientDetail,
     createNewClient,
     updateClient,
