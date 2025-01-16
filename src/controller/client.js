@@ -24,9 +24,9 @@ const getAllClientByUser = async (req, res) => {
 
 const getAllClientFilter = async (req, res) => {
 
-    //Only Add Filled Query
+    //Remove queries with value '0'
     const filteredQuery = Object.entries(req.query).reduce((acc, [key, value]) => {
-        if (value !== '') {
+        if (value !== '0') {
             acc[key] = value;
         }
         return acc;
