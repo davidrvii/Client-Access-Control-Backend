@@ -23,12 +23,18 @@ const getAllClientByUser = async (req, res) => {
 }
 
 const getAllClientFilter = async (req, res) => {
-    const {body} = req
-    console.log('Raw Body:', req.body)
-    console.log('Body received:', body);
+
+    //Only Add Filled Query
+    const filteredQuery = Object.entries(req.query).reduce((acc, [key, value]) => {
+        if (value !== '') {
+            acc[key] = value;
+        }
+        return acc;
+    }, {});
+    
     try {
         const userId = req.userData.id
-        const [data] = await clientModel.getAllClientFilter(userId, body)
+        const [data] = await clientModel.getAllClientFilter(userId, filteredQuery)
         response(200, {filteredClients: data})
     } catch (error) {
         response(500, {error: error}, 'Server Error', res)
@@ -72,7 +78,7 @@ const updateClient = async (req, res) => {
     const { id } = req.params
     const { body } = req
 
-    //remove blank value of key
+    //Only Add Filled Body 
     const filteredBody = Object.entries(body).reduce((acc, [key, value]) => {
         if (value !== '') {
             acc[key] = value;

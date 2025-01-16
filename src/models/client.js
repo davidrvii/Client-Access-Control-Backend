@@ -31,11 +31,8 @@ const getAllClientByUser = (id) => {
     return dbPool.execute(sqlQuery)
 }
 
-const getAllClientFilter = (userId, body) => {
-    const fields = Object.entries(body)
-    .filter(([key, value]) => value !== undefined && value !== '')
-    .map(([key, value]) => `${key}='${value}'`)
-    .join(' AND ');
+const getAllClientFilter = (userId, query) => {
+    const fields = Object.keys(query).map(key => `${key}='${body[key]}'`).join(' AND ')
 
     const sqlQuery = `  SELECT  client.client_id,
                                 client.name,
