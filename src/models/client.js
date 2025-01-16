@@ -31,7 +31,7 @@ const getAllClientByUser = (id) => {
     return dbPool.execute(sqlQuery)
 }
 
-const getSearchedClient = (query) => {
+const getSearchedClient = (id, query) => {
     const sqlQuery = `  SELECT  client.client_id,
                                 client.name,
                                 network.ip_address,
