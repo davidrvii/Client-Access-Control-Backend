@@ -50,7 +50,7 @@ const getSearchedClient = async (req, res) => {
 
         if (query !== '') {
             const [data] = await clientModel.getSearchedClient(userId, query)
-            response(200, {searchedClient: data}, 'Get Searched Client Success', res) 
+            response(200, {clients: data}, 'Get Searched Client Success', res) 
         } else {
             const [data] = await clientModel.getAllClientByUser(userId)
             response(200, {clients: data}, 'GET Client By User Success', res)
